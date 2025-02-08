@@ -1,0 +1,91 @@
+@use "./../../../variables" as *;
+
+@mixin boxShadow($hor, $ver, $blur, $spread, $color) {
+  box-shadow: $hor $ver $blur $spread $color;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2rem;
+  background-color: white;
+  transition: transform 0.4s;
+  @include boxShadow(0px, 2px, 2.5px, 0px, rgba(0, 0, 0, 0.1));
+
+  &:hover {
+    transform: scale(1.05);
+    .image {
+      animation: spin 400ms ease-in-out 1;
+    }
+  }
+
+  .image {
+    position: relative;
+    top: -15%;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    @include boxShadow(0px, 5px, 15px, 0px, rgba(0, 0, 0, 0.3));
+
+    img {
+      width: 100%;
+    }
+  }
+
+  figcaption {
+    text-align: center;
+    margin-top: -10%;
+    padding: 10px 0;
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+
+      line-clamp: 1;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+    }
+
+    .area {
+      color: $secondary-color;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 5px 30px;
+    color: white;
+    font-weight: 500;
+    border-radius: 100vw;
+    background-color: rgb(33 186 117);
+    transition: background-color 0.4s;
+    margin-bottom: 15px;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    .image {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

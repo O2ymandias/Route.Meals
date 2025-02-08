@@ -1,0 +1,35 @@
+@use "./../../../variables" as *;
+
+$box-shadow: 0 20px 25px -5px #ee890e33;
+$scaling: 1.05;
+
+.btns {
+  a {
+    &:hover {
+      transform: scale($scaling);
+      box-shadow: $box-shadow;
+    }
+
+    display: block;
+    transition: all 0.2s;
+    text-indent: 5px;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 25px;
+
+    span {
+      margin-left: 10px;
+    }
+
+    &.active {
+      color: white;
+      background-color: $main-color;
+      box-shadow: $box-shadow;
+      transform: scale($scaling);
+      border-color: $main-color;
+      font-weight: bold;
+    }
+  }
+}

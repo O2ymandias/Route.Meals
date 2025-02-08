@@ -1,0 +1,20 @@
+<figure class="card">
+  <div class="image">
+    <img [src]="imagePath" [alt]="title" />
+  </div>
+
+  <figcaption>
+    <h3 class="title">
+      {{ title }}
+    </h3>
+    <h3 class="area">
+      <i class="fa-solid fa-earth-americas"></i>
+      {{ area }}
+    </h3>
+  </figcaption>
+
+  <a [href]="youtubeLink" target="_blank">
+    View <br />
+    Recipe
+  </a>
+</figure>

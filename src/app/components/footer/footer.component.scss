@@ -1,0 +1,47 @@
+@use "./../../../variables" as *;
+
+@mixin footerHeading6($color: black) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $color;
+}
+
+footer {
+  background-color: white;
+  position: relative;
+  z-index: 9999;
+  padding: 1.5rem;
+
+  .upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+
+    .upper-left {
+      display: flex;
+      align-items: center;
+      column-gap: 1.125rem;
+      img {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+      }
+
+      h6 {
+        @include footerHeading6();
+      }
+    }
+
+    .upper-right {
+      @include footerHeading6(rgb(29 78 216));
+    }
+  }
+
+  .copyright {
+    font-family: $font-pacifico;
+    color: gray;
+    padding: 1rem 0;
+    text-align: center;
+  }
+}

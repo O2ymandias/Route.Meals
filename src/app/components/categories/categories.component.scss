@@ -1,0 +1,106 @@
+@use "./../../../variables" as *;
+
+section {
+  h1 {
+    font-family: $font-pacifico;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    background-image: linear-gradient(to right, #f29724, #ca1023c4, #c90519);
+    color: transparent;
+    background-clip: text;
+    margin: 1.5rem 0;
+  }
+
+  .tabs {
+    display: none;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+
+    .tab {
+      cursor: pointer;
+      padding: 7.5px 15px;
+      width: fit-content;
+      border: 1px solid rgb(0, 0, 0, 0.7);
+      color: gray;
+      border-radius: 100vw;
+      box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+
+    .active-tab {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .options {
+    display: block;
+
+    select {
+      width: 100%;
+      border-radius: 1rem;
+    }
+  }
+
+  .meals {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5rem;
+
+    .meal {
+      width: 100%;
+      .inner {
+        padding: 0 10px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  section {
+    .tabs {
+      display: flex !important;
+    }
+
+    .options {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    .meals {
+      .meal {
+        width: calc(100% / 2);
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  section {
+    .meals {
+      .meal {
+        width: calc(100% / 3);
+      }
+    }
+  }
+}
+@media screen and (min-width: 1280px) {
+  section {
+    .meals {
+      .meal {
+        width: calc(100% / 4);
+      }
+    }
+  }
+}

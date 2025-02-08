@@ -1,0 +1,66 @@
+<section>
+  <h1>Learn, Cook, Eat Your Food</h1>
+
+  <div class="tabs">
+    <div
+      [class.active-tab]="selectedCategory === 'all'"
+      (click)="getAllMeals()"
+      class="tab"
+    >
+      <a> All </a>
+    </div>
+    @for (category of categories; track $index) {
+    <div
+      [class.active-tab]="selectedCategory === category.strCategory"
+      (click)="getMealsPerCategory(category.strCategory)"
+      class="tab"
+    >
+      <a>
+        {{ category.strCategory }}
+      </a>
+    </div>
+    }
+  </div>
+
+  <div class="options">
+    <select
+      [(ngModel)]="selectedCategory"
+      (change)="
+        selectedCategory === 'all'
+          ? getAllMeals()
+          : getMealsPerCategory(selectedCategory)
+      "
+    >
+      <option value="all">All</option>
+      @for (category of categories; track $index){
+      <option [value]="category.strCategory">
+        {{ category.strCategory }}
+      </option>
+      }
+    </select>
+  </div>
+
+  <div class="meals">
+    @if(categoryTriggered){ @for (meal of meals; track meal.idMeal) {
+    <div class="meal">
+      <div class="inner">
+        <app-card
+          [id]="meal.idMeal"
+          [imagePath]="meal.strMealThumb"
+          [title]="meal.strMeal"
+        ></app-card>
+      </div>
+    </div>
+    } } @else { @for (meal of allMeals; track meal.idMeal) {
+    <div class="meal">
+      <div class="inner">
+        <app-card
+          [id]="meal.idMeal"
+          [imagePath]="meal.strMealThumb"
+          [title]="meal.strMeal"
+        ></app-card>
+      </div>
+    </div>
+    } }
+  </div>
+</section>
