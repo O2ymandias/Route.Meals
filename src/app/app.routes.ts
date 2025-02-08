@@ -8,7 +8,11 @@ export const routes: Routes = [
     component: SidenavComponent,
     children: [
       { path: '', redirectTo: 'categories', pathMatch: 'full' },
-      { path: 'categories', component: CategoriesComponent },
+      {
+        path: 'categories',
+        component: CategoriesComponent,
+        title: 'categories',
+      },
     ],
   },
 ];
